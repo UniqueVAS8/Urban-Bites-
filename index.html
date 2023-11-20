@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>UrbanBites</title>
+    <link rel="stylesheet" href="cutiefyer.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<section id="lol">
+    <div class="aigha">
+    <ul class="menu">
+        <li class="links"><a href="#welcome">Home</a></li>
+        <li class="links"><a href="#videos">About Us</a></li>
+        <li class="links"><a href="#work">Order Directly</a></li>
+        <li class="links"><a href="#writings">Branches</a></li>
+        <li class="links"><a href="#contactvassie">Contact</a></li> </div>
+
+    </ul>
+</section>
+    <section id="welcome">
+        <div class="parallax-inner">
+            <img src="Untitled design (9).png" class="profile" />
+            <h1><span id="helooo">Fast, Easy, Modern <br><span id="name">Urban Bites</span></h1>
+            <h2><span id="heloo">For your daily needs! </span></h2>
+        </div>
+
+    </section>
+            <section id="videos">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+                <div class="w3-content w3-display-container">
+                    <img class="mySlides" src="Special Menu (1).png">
+                    <img class="mySlides" src="Special Menu (2).png" >
+                    <img class="mySlides" src="Special Menu (3).png" >
+                 
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                  </div>
+                 
+                  <script>
+                  var slideIndex = 1;
+                  showDivs(slideIndex);
+                 
+                  function plusDivs(n) {
+                    showDivs(slideIndex += n);
+                  }
+                 
+                  function showDivs(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    if (n > x.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = x.length}
+                    for (i = 0; i < x.length; i++) {
+                      x[i].style.display = "none";  
+                    }
+                    x[slideIndex-1].style.display = "block";  
+                  }
+                  </script>
+                  <br>
+                  <h1 id="name"> Menu</h1>
+<section id="work">
+<div class="container">
+<br>
+<div class="menu-item">
+    <h2>Pizza</h2>
+    <p>Pan Fried Pizza, with fresh Mozzerela Cheese and Sauce from the Finest tomatoes</p>
+    <button onclick="addToCart('Cheese Pizza', 169.99)" id="buttony">Margherita - 169.99₹</button>
+    <button onclick="addToCart('Veg Pizza', 170.99)" id="buttony">Veggie Delight - 170.99₹</button>
+    <button onclick="addToCart('Chicken Pizza', 200.99)" id="buttony">Chicken-stuffed - 200.99₹</button>
+</div>
+
+<div class="menu-item">
+    <h2>Chicken</h2>
+    <p>Legs and Wings of the most elite chickens.</p>
+    <button onclick="addToCart('Fried Chicken', 80.75)" id="buttony">Fried - 80.75₹</button>
+    <button onclick="addToCart('Boiled Chicken', 75.75)" id="buttony">Boiled - 75.75₹</button>
+    <button onclick="addToCart('Chicken Lollipop', 80.75)" id="buttony">Lollipop - 100.75₹</button>
+</div>
+
+<div class="menu-item">
+    <h2>Salad</h2>
+    <p>Fresh salad with mixed greens, cherry tomatoes, and smoothest dressings.</p>
+    <button onclick="addToCart('Salad', 34.5)" id="buttony">All Vegetable Salad - 34.5₹</button>
+</div>
+
+<div class="menu-item">
+    <h2>Rice</h2>
+    <p>Freshly cooked rice, perfectly fluffy and white</p>
+    <button onclick="addToCart('Sambar Rice', 200.80)" id="buttony">Rice with Sambar - 200.80₹</button>
+    <button onclick="addToCart('Rasam Rice', 160.80)" id="buttony">Rice with Rasam - 160.80₹</button>
+    <button onclick="addToCart('Full Meals', 200.80)" id="buttony">Full Rice Meals - 270.80₹</button>
+</div>
+
+<div class="menu-item">
+    <h2>Snacks</h2>
+    <p>Small, Filling and "Urban" bite for a quick recharge</p>
+    <button onclick="addToCart('2 Samosas', 60.80)" id="buttony">Samosa (set of 2) - 60.80₹</button>
+    <button onclick="addToCart('Veg Puff', 40.80)" id="buttony">Puff (veg) - 40.80₹</button>
+    <button onclick="addToCart('Bhel Puri', 100.80)" id="buttony">Bhel Puri - 100.80₹</button>
+</div>
+
+<div id="cart">
+    <h2>Shopping Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: ₹<span id="total">0.00</span></p>
+        <br>
+</div>
+
+<script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(item, price) {
+        cart.push({ item, price });
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItemsElement = document.getElementById('cart-items');
+        const totalElement = document.getElementById('total');
+
+        cartItemsElement.innerHTML = '';
+        total = 0;
+
+        cart.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item.item}: $${item.price.toFixed(2)}`;
+            cartItemsElement.appendChild(listItem);
+            total += item.price;
+        });
+
+        totalElement.textContent = total.toFixed(2);
+    }
+</script>
+<div class="line"></div>
+
+<section id="writings">
+<h1 id="name">Branches</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+    <br>
+    <div class="w3-tooltip">
+        <img src="Screenshot 2023-11-19 201846.png" alt="6/6" style="width:30%">
+        <h4>Padur Branch</h4>
+        <p class="w3-text">This was the first branch constructed in India in 2019. It is located in Padur, Chenna - 600103    
+        </p>
+      </div>
+      <div class="w3-tooltip">
+        <img src="real urban.png" alt="6/6" style="width:30%">
+        <h4>Tambaram Branch</h4>
+        <p class="w3-text">This branch is located in Tambaram, Chennai - 600045. It is opposite to "Hot Chips".
+        </p>
+      </div>
+    </section>
+</section>
+    
+    <section id="contactvassie">
+        <h1 class="header">Contact Me</h1>
+        
+
+
+          <a href="mailto: Vasundra01mar@gmail.com"> My email id is vasundra01mar@gmail.com</a>
+          <p> If you have any other queries about our restaurant, please contact us. We are currently hiring as well so please email to apply.</p>
+          </section>
+
+          <br>
+        
+          
+</body>
+</html>
